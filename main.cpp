@@ -24,7 +24,7 @@ int main(int argc, char*argv[]) {
     //asks user for what type of course grade output to have
     else if(output_type == "Course") {
         std::cout << "enter 1 for all grades within categories and overall course grade" << "\n";
-        std::cout << "enter 2 for all grades within categories and overall course grade" << "\n";
+        std::cout << "enter 2 for only category totals and overall course grade" << "\n";
         std::cout << "enter 3 for only overall course grade" << "\n";
         std::cin >> choice;
 

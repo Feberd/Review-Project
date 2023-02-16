@@ -36,7 +36,7 @@ int main(int argc, char*argv[]) {
     int projects;
     int exam;
 
-
+    //reads file
     std::ifstream file(input_file);
 
     std::string str;
@@ -58,6 +58,7 @@ int main(int argc, char*argv[]) {
         std::cout << temp[i] << std::endl;
     }*/
 
+    //puts grades in category variables
     labs = temp[0];
     assign = temp[1];
     projects = temp[2];

@@ -1,0 +1,13 @@
+Name
+labs assignments projects exam
+20 50 150 100
+20 50 350
+20 50
+20 50
+20
+20
+20
+20
+20
+20
+

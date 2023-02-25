@@ -16,26 +16,26 @@ Once one of these options are chosen, the file with the grades are read and the 
 
 ### Pseudocode for choice of user in main.cpp:
 
-  If "Individual" is part of the CLA, then  
-      go to the individual member function of the gradebook class to calculate the overall grade  
-      go to Individual write member function to write to specified output file  
-  else if "Category" is part of the CLA, then  
-      read in what category was typed by the user after the prompt and put it into the category name variable  
-      go to the Category member function of the gradebook class to calculate the grade of specified category  
-      go to Category write member function to write to specified output file
-  else if "Course" is part of the CLA, then  
-      read in what choice was typed by the user after the prompt and put into the choice variable  
-      go to the Course write member function of the gradebook class where depending on the choice, different grades will be written to the file  
+&emsp;If "Individual" is part of the CLA, then  
+&emsp;&emsp;&emsp;&emsp;go to the individual member function of the gradebook class to calculate the overall grade  
+&emsp;&emsp;&emsp;&emsp;go to Individual write member function to write to specified output file  
+&emsp;else if "Category" is part of the CLA, then  
+&emsp;&emsp;&emsp;&emsp;read in what category was typed by the user after the prompt and put it into the category name variable  
+&emsp;&emsp;&emsp;&emsp;go to the Category member function of the gradebook class to calculate the grade of specified category  
+&emsp;&emsp;&emsp;&emsp;go to Category write member function to write to specified output file  
+&emsp;else if "Course" is part of the CLA, then  
+&emsp;&emsp;&emsp;&emsp;read in what choice was typed by the user after the prompt and put into the choice variable  
+&emsp;&emsp;&emsp;&emsp;go to the Course write member function of the gradebook class where depending on the choice, different grades will write to the file  
       
       
 ### Detailed Instructions on Use of program:
 
   **CLA format:**   First_Name Last_Name input_file output_file output_type  
-        First_Name = the first name of the user  
-        Last_Name = the last name of the user  
-        input_file = file name that user wants the grades/categories to be read from  
-        output_file = file name that user wants the output to be written to  
-        output_type = users choice of "Individual", "Category" or "Course"  
+&emsp;&emsp;&emsp;&emsp;First_Name = the first name of the user  
+&emsp;&emsp;&emsp;&emsp;Last_Name = the last name of the user  
+&emsp;&emsp;&emsp;&emsp;input_file = file name that user wants the grades/categories to be read from  
+&emsp;&emsp;&emsp;&emsp;output_file = file name that user wants the output to be written to  
+&emsp;&emsp;&emsp;&emsp;output_type = users choice of "Individual", "Category" or "Course"  
         
   **CLA example for Individual:**   John Smith grades.txt finalGrades.txt Individual
   

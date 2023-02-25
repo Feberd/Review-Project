@@ -67,24 +67,26 @@ int main(int argc, char*argv[]) {
             examGradesList.push_back(examGrades);
         }
     }
+    
 
-    // calls the declare function
+    // instance of class
     Gradebook Mygradebook = Gradebook(labGradesList, assignmentGradesList, projectGradesList, examGradesList);
 
     // choice for the type of course output
     int choice;
 
+    // used when user chooses individual
+    if (output_type == "Individual") {
+        int grades = Mygradebook.IndividualGrade();
+        Mygradebook.IndividualWriteFile(output_file, name, surName, grades);
+    }
+    
     // asks user for input of the type of category
-    if (output_type == "Category") {
+    else if (output_type == "Category") {
         std::cout << "Select and type one category from (lab/assignment/project/exam) : ";
         std::cin >> categoryName;
         int grade = Mygradebook.CategoryGrade(categoryName);
         Mygradebook.CategoryWriteFile(output_file, categoryName, grade);
-    }
-
-    else if (output_type == "Individual") {
-        int grades = Mygradebook.IndividualGrade();
-        Mygradebook.IndividualWriteFile(output_file, name, surName, grades);
     }
 
     // asks user for what type of course grade output to have
@@ -98,7 +100,7 @@ int main(int argc, char*argv[]) {
 
     }
     else {
-        std::cout << "Please check your spelling for the 4th cla" << std::endl;
+        std::cout << "Please check your spelling for the 5th CLA" << std::endl;
     }
 
     return 0;

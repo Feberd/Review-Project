@@ -17,17 +17,18 @@ Once one of these options are chosen, the file with the grades are read and the 
 ## Pseudocode for choice of user in main.cpp:
 
 &emsp;If "Individual" is CLA 5, then  
-&emsp;&emsp;&emsp;&emsp;go to the individual member function of the gradebook class to calculate overall grade  
-&emsp;&emsp;&emsp;&emsp;go to Individual write member function to write to specified output file  
+&emsp;&emsp;&emsp;&emsp;- go to the individual member function of the gradebook class to calculate overall grade  
+&emsp;&emsp;&emsp;&emsp;- go to Individual write member function to write to specified output file  
 &nbsp;  
 &emsp;else if "Category" is CLA 5, then  
-&emsp;&emsp;&emsp;&emsp;read in what category was typed by the user after the prompt  
-&emsp;&emsp;&emsp;&emsp;go to the Category member function of the gradebook class to calculate the grade of specified category  
-&emsp;&emsp;&emsp;&emsp;go to Category write member function to write to specified output file  
+&emsp;&emsp;&emsp;&emsp;- read in what category was typed by the user after the prompt  
+&emsp;&emsp;&emsp;&emsp;- go to the Category member function of the gradebook class to calculate the grade of specified category  
+&emsp;&emsp;&emsp;&emsp;- go to Category write member function to write to specified output file  
 &nbsp;  
 &emsp;else if "Course" is CLA 5, then  
-&emsp;&emsp;&emsp;&emsp;read in what choice was typed by the user after the prompt  
-&emsp;&emsp;&emsp;&emsp;go to the Course write member function of the gradebook class where depending on the choice, different grades will write to the file  
+&emsp;&emsp;&emsp;&emsp;- read in what choice was typed by the user after the prompt  
+&emsp;&emsp;&emsp;&emsp;- go to the Course write member function of the gradebook class where depending on the choice,  
+&emsp;&emsp;&emsp;&emsp;&emsp;different grades will write to the file  
 &nbsp;  
 &emsp;else  
 &emsp;&emsp;&emsp;&emsp;Tell user that CLA 5 is not one of the three choices  

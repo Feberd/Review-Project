@@ -1,5 +1,4 @@
-# Review-Project
-## Review project for CSC 212
+# Review project for CSC 212
 
 ### Summary of Project:
 

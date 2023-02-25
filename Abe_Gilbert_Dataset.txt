@@ -1,0 +1,5 @@
+labs assignments projects exam
+20 16 0 0 18 20 10 16 14 20
+50 25 35 40
+130 280
+80

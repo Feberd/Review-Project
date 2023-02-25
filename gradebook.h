@@ -1,23 +1,24 @@
-#ifndef REVIEW_PROJECT_GRADEBOOK_H
-#define REVIEW_PROJECT_GRADEBOOK_H
+#ifndef REVIEWPROJECT_GRADEBOOK_H
+#define REVIEWPROJECT_GRADEBOOK_H
 
 #include <string>
 #include <vector>
 
 class Gradebook{
+
 private:
-    int labs;
-    int assign;
-    int projects;
-    int exam;
+    std::vector<int> labGradesList;
+    std::vector<int> assignmentGradesList;
+    std::vector<int> projectGradesList;
+    std::vector<int> examGradesList;
 
 public:
-    Gradebook(int labs, int assign, int projects, int exam);
-    int IndividualGrade(std::string name);
-    std::vector<int> CategoryGrade(std::string cat);
-    void CourseGrade();
-    void IndWriteFile(std::string output_file, std::string name, int grades);
-    void WriteFile(std::string output_file, std::vector<int> *grades);
+    Gradebook(std::vector<int> labGradesList,std::vector<int> assignmentGradesList, std::vector<int> projectGradesList, std::vector<int> examGradesList);
+    int IndividualGrade();
+    int CategoryGrade(std::string categoryName);
+    void IndividualWriteFile(std::string output_file, std::string name, std::string surName, int grades);
+    void CategoryWriteFile(std::string output_file, std::string categoryName, int grades);
+    void CourseWriteFile(std::string output_file, int grades);
 };
 
-#endif //REVIEW_PROJECT_GRADEBOOK_H
+#endif

@@ -6,87 +6,100 @@
 #include <sstream>
 
 int main(int argc, char*argv[]) {
-    std::string name(argv[1]);          //name of person
-    std::string input_file(argv[2]);    //file to read from
-    std::string output_file(argv[3]);   //file to write to
-    std::string output_type(argv[4]);   //what type of choice for getting grade (individual, category, course)
 
-    //string for category type
-    std::string cat;
-    //choice for the type of course output
-    int choice;
+    std::string name(argv[1]);          // name of the person
+    std::string surName(argv[2]);       // surname of the person
+    std::string input_file(argv[3]);    // file to read from
+    std::string output_file(argv[4]);   // file to write to
+    std::string output_type(argv[5]);   // type of choice for getting grade (individual, category, course)
 
-    //asks user for input of the type of category
-    if(output_type == "Category") {
-        std::cout << "Category: ";
-        std::cin >> cat;
-    }
-    //asks user for what type of course grade output to have
-    else if(output_type == "Course") {
-        std::cout << "enter 1 for all grades within categories and overall course grade" << "\n";
-        std::cout << "enter 2 for only category totals and overall course grade" << "\n";
-        std::cout << "enter 3 for only overall course grade" << "\n";
-        std::cin >> choice;
+    // string for category type
+    std::string categoryName;
 
-    }
-
-    //the four categories
-    int labs;
-    int assign;
-    int projects;
-    int exam;
-
-    //reads file
+    // reads the file
     std::ifstream file(input_file);
+    std::string line;
 
-    std::string str;
-    std::vector<int> temp;
-
-    while (std::getline(file, str)) {
-
-
-        std::istringstream ss(str);
-
-        int token;
-
-        while (ss >> token) {
-            temp.push_back(token);
+    // pushes the category names to a list
+    std::vector<std::string> categoryList;
+    std::string category;
+    if (std::getline(file, line)) {
+        std::istringstream ss(line);
+        while (ss >> category) {
+            categoryList.push_back(category);
         }
     }
 
-    /*for(int i = 0; i < temp.size(); i++) {
-        std::cout << temp[i] << std::endl;
-    }*/
+    // lists to store the grades
+    std::vector<int> labGradesList;
+    std::vector<int> assignmentGradesList;
+    std::vector<int> projectGradesList;
+    std::vector<int> examGradesList;
 
-    //puts grades in category variables
-    labs = temp[0];
-    assign = temp[1];
-    projects = temp[2];
-    exam = temp[3];
-    /*std::cout << labs << std::endl;
-    std::cout << assign << std::endl;
-    std::cout << projects << std::endl;
-    std::cout << exam << std::endl;*/
+    // single grades
+    int labGrades;
+    int assignmentGrades;
+    int projectGrades;
+    int examGrades;
 
-    //std::cout << cat << std::endl;
-
-    Gradebook Mygradebook = Gradebook(labs, assign, projects, exam);
-
-    if(output_type == "Individual"){
-        int grades = Mygradebook.IndividualGrade(name);
-        Mygradebook.IndWriteFile(output_file, name, grades);
+    // pushes the specific grades to the specific list by line in order
+    if (std::getline(file, line)) {
+        std::istringstream ss(line);
+        while (ss >> labGrades) {
+            labGradesList.push_back(labGrades);
+        }
     }
-    else if(output_type == "Category"){
-        std::vector<int> grades = Mygradebook.CategoryGrade(cat);
+    if (std::getline(file, line)) {
+        std::istringstream ss(line);
+        while (ss >> assignmentGrades) {
+            assignmentGradesList.push_back(assignmentGrades);
+        }
+    }
+    if (std::getline(file, line)) {
+        std::istringstream ss(line);
+        while (ss >> projectGrades) {
+            projectGradesList.push_back(projectGrades);
+        }
+    }
+    if (std::getline(file, line)) {
+        std::istringstream ss(line);
+        while (ss >> examGrades) {
+            examGradesList.push_back(examGrades);
+        }
+    }
+
+    // calls the declare function
+    Gradebook Mygradebook = Gradebook(labGradesList, assignmentGradesList, projectGradesList, examGradesList);
+
+    // choice for the type of course output
+    int choice;
+
+    // asks user for input of the type of category
+    if (output_type == "Category") {
+        std::cout << "Select and type one category from (lab/assignment/project/exam) : ";
+        std::cin >> categoryName;
+        int grade = Mygradebook.CategoryGrade(categoryName);
+        Mygradebook.CategoryWriteFile(output_file, categoryName, grade);
+    }
+
+    else if (output_type == "Individual") {
+        int grades = Mygradebook.IndividualGrade();
+        Mygradebook.IndividualWriteFile(output_file, name, surName, grades);
+    }
+
+    // asks user for what type of course grade output to have
+    else if (output_type == "Course") {
+        std::cout << "Enter 1 for all grades within categories and overall course grade" << "\n";
+        std::cout << "Enter 2 for only category totals and overall course grade" << "\n";
+        std::cout << "Enter 3 for only overall course grade" << "\n";
+        std::cout << "Enter here :";
+        std::cin >> choice;
+        Mygradebook.CourseWriteFile(output_file, choice);
 
     }
-    else if(output_type == "Course"){
-
+    else {
+        std::cout << "Please check your spelling for the 4th cla" << std::endl;
     }
-    //std::vector<int> vec = {30, 50, 70, 20};
-    //Mygradebook.WriteFile(output_file, &vec);
 
     return 0;
 }
-
-
